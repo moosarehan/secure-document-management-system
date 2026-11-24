@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Document vault{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('stylesheet') }}">
+</head>
+<body>
+  <header>
+    <nav class="shell nav" aria-label="Main">
+      <a class="brand" href="{{ url_for('index') }}">Document vault</a>
+      {% if g.user %}
+      <div class="nav-actions">
+        {% if g.user.role == 'admin' %}<a href="{{ url_for('audit') }}">Audit trail</a>{% endif %}
+        <span>{{ g.user.username }}</span>
+        <form method="post" action="{{ url_for('logout') }}">
+          <input type="hidden" name="csrf" value="{{ session.csrf }}">
+          <button class="secondary">Sign out</button>
+        </form>
+      </div>
+      {% endif %}
+    </nav>
+  </header>
+  <main class="shell">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

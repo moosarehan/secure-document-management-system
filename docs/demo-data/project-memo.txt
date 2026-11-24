@@ -1,0 +1,13 @@
+CS3002 synthetic demonstration memo
+===================================
+
+This document was created for the Secure Document Management System demo.
+
+Project: Lantern Library (fictional)
+Owner: Alice (demonstration account)
+Revision: 1
+
+Demonstration goal: Verify that authorized users can download this memo and
+that their existing sessions lose access when the owner revokes a grant.
+
+This file contains fictional data and no credentials, keys, or personal records.

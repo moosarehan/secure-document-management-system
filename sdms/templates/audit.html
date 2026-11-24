@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Audit trail · Document vault{% endblock %}
+{% block content %}
+<a class="back" href="{{ url_for('index') }}">← Documents</a>
+<h1>Audit trail</h1>
+<p class="notice">Full history verified. Showing up to 100 recent events.</p>
+<div class="table-scroll">
+  <table>
+    <caption class="sr-only">Recent audit events</caption>
+    <thead><tr><th scope="col">#</th><th scope="col">Time</th><th scope="col">Actor</th><th scope="col">Action</th><th scope="col">Outcome</th><th scope="col">Document</th><th scope="col">Details</th></tr></thead>
+    <tbody>
+      {% for event in events %}
+      <tr>
+        <td>{{ event.seq }}</td><td>{{ event.recorded_at | utc }}</td>
+        <td>{% if event.actor_id %}{{ event.username or 'Account' }} ({{ event.actor_id }}){% else %}—{% endif %}</td>
+        <td>{{ event.action | replace('_', ' ') }}</td><td>{{ event.outcome | replace('_', ' ') }}</td>
+        <td>{{ event.document_id or '—' }}</td><td>{{ event.detail or '—' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

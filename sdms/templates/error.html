@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Request unavailable · Document vault{% endblock %}
+{% block content %}
+<h1>Request unavailable</h1>
+<p class="notice error">{{ message }}</p>
+<a class="back" href="{{ url_for('index') }}">← Documents</a>
+{% endblock %}

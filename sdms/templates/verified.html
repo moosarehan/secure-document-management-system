@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Integrity verified · Document vault{% endblock %}
+{% block content %}
+<a class="back" href="{{ url_for('detail', document_id=doc.id) }}">← {{ doc.filename }}</a>
+<h1>Integrity verified</h1>
+<p class="notice">The stored contents and their authentication tag match.</p>
+{% endblock %}

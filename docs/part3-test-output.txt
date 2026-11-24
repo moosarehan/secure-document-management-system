@@ -1,0 +1,24 @@
+test_01_unauthorized_document_access (test_security.SecurityTests.test_01_unauthorized_document_access) ... Scenario 1 | anonymous redirect 303, unshared download 404, denial authenticated
+ok
+test_02_route_parameter_keeps_document_scope (test_security.SecurityTests.test_02_route_parameter_keeps_document_scope) ... Scenario 2 | own document 200, other and unknown IDs 404 with identical bodies
+ok
+test_03_database_at_rest_contains_ciphertext (test_security.SecurityTests.test_03_database_at_rest_contains_ciphertext) ... Scenario 3 | filename visible, fixture absent from database bytes, authorized round trip matches
+ok
+test_04_corrupt_storage_blocks_plaintext (test_security.SecurityTests.test_04_corrupt_storage_blocks_plaintext) ... Scenario 4 | intact verification 200, corrupted verification and download 409
+ok
+test_05_permissions_apply_to_each_operation (test_security.SecurityTests.test_05_permissions_apply_to_each_operation) ... Scenario 5 | viewer replacement 403, editor replacement 303, owner-only operations 403, admin download 404
+ok
+test_06_revocation_applies_to_active_sessions (test_security.SecurityTests.test_06_revocation_applies_to_active_sessions) ... Scenario 6 | same session 200 before and 404 after revoke, saved copy remains
+ok
+test_07_audit_integrity_detects_edit_and_tail_removal (test_security.SecurityTests.test_07_audit_integrity_detects_edit_and_tail_removal) ... Scenario 7 | clean history 200, edited row and deleted tail 503 with diagnostic
+ok
+test_csrf_expiry_logout_and_owner_deletion (test_security.SecurityTests.test_csrf_expiry_logout_and_owner_deletion) ... ok
+test_edited_tail_blocks_document_mutation (test_security.SecurityTests.test_edited_tail_blocks_document_mutation) ... Audit append | edited tail returned 503 and document deletion rolled back
+ok
+test_rate_limit_counts_failed_logins (test_security.SecurityTests.test_rate_limit_counts_failed_logins) ... ok
+test_upload_limit_and_empty_payload (test_security.SecurityTests.test_upload_limit_and_empty_payload) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 26.185s
+
+OK
